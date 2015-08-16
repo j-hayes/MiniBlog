@@ -1,13 +1,13 @@
 ﻿<article class="post" data-id="@Model.ID" itemscope itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
-    <header class="jumbotron">
+    <header class="jumbotron accent-color">
         <h1 itemprop="headline name">
-            <a href="@Model.Url" itemprop="url">@Model.Title</a>
+            <span><a class="text-primary-color" href="@Model.Url" itemprop="url">@Model.Title</a></span>
         </h1>
-        <div>
+        <div class="text-primary-color">
             <abbr title="@Model.PubDate.ToLocalTime()" itemprop="datePublished">@Model.PubDate.ToLocalTime().ToString("MMMM d. yyyy")</abbr>
-            <a href="@Model.Url#comments">
-                <em class="glyphicon glyphicon-comment"></em>
-                @Model.CountApprovedComments(Context) Comments
+            <a class="text-primary-color" href="@Model.Url#comments">
+                <em class="glyphicon glyphicon-comment text-primary-color"></em>
+                <span class="text-primary-color"> @Model.CountApprovedComments(Context) Comments</span>
             </a>
             @Categories()
         </div>
@@ -67,7 +67,7 @@
             @foreach (string cat in Model.Categories)
             {
                 <li itemprop="articleSection">
-                    <a href="~/category/@HttpUtility.UrlEncode(cat.ToLowerInvariant())">@cat</a>
+                    <a class="text-primary-color" href="~/category/@HttpUtility.UrlEncode(cat.ToLowerInvariant())">@cat</a>
                 </li>
             }
         </ul>

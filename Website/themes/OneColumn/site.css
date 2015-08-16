@@ -12,11 +12,13 @@
 
 html, body{
     height: 100%;
+       background-color: #e1e3e4;
 }
 
 body {
     font: 1.8em/1.5 'Century Gothic', Verdana, Geneva, 'DejaVu Sans', sans-serif;
-    margin: 0;
+    margin: 0;   
+    background-color: #e1e3e4;
 }
 
 img, video, iframe {
@@ -29,6 +31,7 @@ td img, video, iframe {
 
 a {
     color: #3277b3;
+    text-decoration: none !important;
 }
 
 .container {
@@ -44,7 +47,7 @@ a {
 
         .container > header a {
             font-size: 4em;
-            color: #000;
+          
         }
 
 div[role=main] {
@@ -66,9 +69,9 @@ input[type], button, textarea {
     margin: 0 0 3px 0;
 }
 
-.post header a {
+/*.post header a {
     color: #000;
-}
+}*/
 
 .post header div {
     font-size: .75em;
@@ -245,3 +248,13 @@ footer {
 .slideClone img {
     float: left;
 }
+
+.dark-primary-color-text    { color: #455A64; }
+.dark-primary-color    { background: #455A64; }
+.default-primary-color { background: #607D8B; }
+.light-primary-color   { background: #CFD8DC; }
+.text-primary-color    { color: #FFFFFF; }
+.accent-color          { background: #448AFF; }
+.primary-text-color    { color: #212121; }
+.secondary-text-color  { color: #727272; }
+.divider-color         { border-color: #B6B6B6; }

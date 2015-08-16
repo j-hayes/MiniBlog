@@ -40,28 +40,30 @@
 <body itemscope itemtype="http://schema.org/Blog" class="@(User.Identity.IsAuthenticated ? "admin": null)">
 
     <div class="container">
-        <header role="banner">
-            <span><a href="~/" itemprop="url">@Blog.Title</a></span><br />
-            <em>@Blog.Description</em>
-        </header>
+      
+            <header role="banner">
+                <span><a class="dark-primary-color-text" href="~/" itemprop="url">@Blog.Title</a></span><br />
+                <em class="dark-primary-color-text">@Blog.Description</em>
+            </header>
+        <div class="row">
+            <div role="main" class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+                @RenderBody()
 
-        <div role="main" class="col-md-8 col-md-offset-2">
-            @RenderBody()
+                @if (Page.ShowPaging != null)
+                {
+                    <ul class="pager">
+                        @if (Blog.GetPosts().Count() > Blog.PostsPerPage * Blog.CurrentPage)
+                        {
+                            <li class="previous"><a href="@Blog.GetPagingUrl(1)" rel="prev">&larr; Older</a></li>
+                        }
 
-            @if (Page.ShowPaging != null)
-            {
-                <ul class="pager">
-                    @if (Blog.GetPosts().Count() > Blog.PostsPerPage * Blog.CurrentPage)
-                    {
-                        <li class="previous"><a href="@Blog.GetPagingUrl(1)" rel="prev">&larr; Older</a></li>
-                    }
-
-                    @if (Blog.CurrentPage > 1)
-                    {
-                        <li class="next"><a href="@Blog.GetPagingUrl(-1)" rel="next">Newer &rarr;</a></li>
-                    }
-                </ul>
-            }
+                        @if (Blog.CurrentPage > 1)
+                        {
+                            <li class="next"><a href="@Blog.GetPagingUrl(-1)" rel="next">Newer &rarr;</a></li>
+                        }
+                    </ul>
+                }
+            </div>
         </div>
     </div>
 
@@ -73,8 +75,8 @@
             </span>
         }
         <span>
-            Copyright &copy; @DateTime.Now.Year
-            <a href="http://madskristensen.net" itemprop="url name">Mads Kristensen</a>
+            Copyright &copy; @DateTime.Now.Year Jackson Hayes | <a href="https://github.com/madskristensen/MiniBlog">Blog powered by MiniBlog</a>
+
         </span>
     </footer>
 
