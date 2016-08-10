@@ -40,10 +40,12 @@
 <body itemscope itemtype="http://schema.org/Blog" class="@(User.Identity.IsAuthenticated ? "admin": null)">
 
     <div class="container">
-      
-            <header role="banner">
-                <span><a class="dark-primary-color-text" href="~/" itemprop="url">@Blog.Title</a></span><br />
-                <em class="dark-primary-color-text">@Blog.Description</em>
+            <header class="heroBanner" role="banner">
+                <img src="https://drscdn.500px.org/photo/137330101/m%3D2048/15fe3e1e02e2e41112458f903075a151" alt="" />
+                <div class="heroText">
+                    <span><a  href="~/" itemprop="url">@Blog.Title</a></span><br />
+                    <em>@Blog.Description</em>
+                </div>
             </header>
         <div class="row">
             <div role="main" class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">

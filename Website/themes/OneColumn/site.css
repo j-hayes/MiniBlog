@@ -1,24 +1,12 @@
-﻿@media only screen and (max-width: 1280px) {
-    @-ms-viewport {
-        width: 800px;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    @-ms-viewport {
-        width: 600px;
-    }
-}
-
-html, body{
+﻿html, body {
     height: 100%;
-       background-color: #e1e3e4;
+    background-color: white;
 }
 
 body {
     font: 1.8em/1.5 'Century Gothic', Verdana, Geneva, 'DejaVu Sans', sans-serif;
-    margin: 0;   
-    background-color: #e1e3e4;
+    margin: 0;
+    background-color: white;
 }
 
 img, video, iframe {
@@ -36,7 +24,10 @@ a {
 
 .container {
     min-height: 100%;
-    padding-bottom: 35px;
+   
+    width: 100vw;
+    padding: 0 0 35px 0;
+  
 }
 
     .container > header {
@@ -47,8 +38,28 @@ a {
 
         .container > header a {
             font-size: 4em;
-          
         }
+
+.heroBanner {
+    width: 100vw;
+    position: relative;
+    background-repeat: no-repeat;
+ 
+   }
+.heroText {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    bottom: -2vh;
+    background: rgba(0, 0, 0, 0.23);
+    width: 100%;
+    height: 25%;
+}
+
+.heroText a {
+   color: white;
+}
 
 div[role=main] {
     margin-bottom: 2em;
@@ -249,12 +260,39 @@ footer {
     float: left;
 }
 
-.dark-primary-color-text    { color: #455A64; }
-.dark-primary-color    { background: #455A64; }
-.default-primary-color { background: #607D8B; }
-.light-primary-color   { background: #CFD8DC; }
-.text-primary-color    { color: #FFFFFF; }
-.accent-color          { background: #448AFF; }
-.primary-text-color    { color: #212121; }
-.secondary-text-color  { color: #727272; }
-.divider-color         { border-color: #B6B6B6; }
+.dark-primary-color-text {
+    color: #455A64;
+}
+
+.dark-primary-color {
+    background: #455A64;
+}
+
+.default-primary-color {
+    background: #607D8B;
+}
+
+.light-primary-color {
+    background: #CFD8DC;
+}
+
+.text-primary-color {
+    color: black;
+}
+
+.accent-color {
+    background: #448AFF;
+}
+
+.primary-text-color {
+    color: #212121;
+}
+
+.secondary-text-color {
+    color: #727272;
+}
+
+.divider-color {
+    border-color: #B6B6B6;
+}
+
