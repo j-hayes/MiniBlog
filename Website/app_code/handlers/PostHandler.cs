@@ -6,7 +6,6 @@ using System.Security.Policy;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using BlogPort;
 
 public class PostHandler : IHttpHandler
 {

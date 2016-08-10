@@ -45,9 +45,11 @@
                 <div class="heroText">
                     <span><a  href="~/" itemprop="url">@Blog.Title</a></span><br />
                     <em>@Blog.Description</em>
+                    <br/>
+                    <button class="heroButton">Photos</button>
                 </div>
             </header>
-        <div class="row">
+        <div class="row" style="margin: 0">
             <div role="main" class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
                 @RenderBody()
 
@@ -72,7 +74,7 @@
     <footer class="text-center" role="contentinfo" itemscope itemtype="http://schema.org/Person" itemprop="author">
         @if (!User.Identity.IsAuthenticated)
         {
-            <span class="pull-right">
+            <span class="pull-right" style="margin-right: 30px">
                 <a href="@FormsAuthentication.LoginUrl?ReturnUrl=@Request.RawUrl">Sign in <i class="glyphicon glyphicon-log-in"></i></a>
             </span>
         }
