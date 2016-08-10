@@ -17,8 +17,9 @@
     <link rel="stylesheet" href="@Blog.FingerPrint("/Content/bootstrap.css", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css")" />
     <link rel="stylesheet" href="@Blog.FingerPrint("/themes/" + Blog.Theme + "/site.css")" />
     <link rel="shortcut icon" href="@Blog.FingerPrint("/favicon.ico")" type="image/x-icon" />
-    <link rel="dns-prefetch" href="http://gravatar.com/" />
+    <link rel="dns-prefetch" href="http://gravatar.com/"/>
 
+  
     @AdminCss()
 
     <meta name="application-name" content="@Blog.Title" />
@@ -37,63 +38,73 @@
         <link rel="next" href="@next" />
     }
 </head>
-<body itemscope itemtype="http://schema.org/Blog" class="@(User.Identity.IsAuthenticated ? "admin": null)">
+<body itemscope itemtype="http://schema.org/Blog" class="@(User.Identity.IsAuthenticated ? "admin" : null)">
 
-    <div class="container">
-            <header class="heroBanner" role="banner">
-                <img src="https://drscdn.500px.org/photo/137330101/m%3D2048/15fe3e1e02e2e41112458f903075a151" alt="" />
-                <div class="heroText">
-                    <span><a  href="~/" itemprop="url">@Blog.Title</a></span><br />
-                    <em>@Blog.Description</em>
-                    <br/>
-                    <button class="heroButton">Photos</button>
-                </div>
-            </header>
-        <div class="row" style="margin: 0">
-            <div role="main" class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
-                @RenderBody()
+<div class="container">
+    <header class="heroBanner" role="banner">
+        <img src="https://drscdn.500px.org/photo/137330101/m%3D2048/15fe3e1e02e2e41112458f903075a151" alt=""/>
+        <div class="heroText">
+            <span><a  href="~/" itemprop="url">@Blog.Title</a></span><br/>
+            <em>@Blog.Description</em>
+            <br/>
+            <button id="photoButton" class="heroButton">Photos</button>
+        </div>
+    </header>
+    <div class="row" style="margin: 0">
+        <div role="main" class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0">
+            @RenderBody()
 
-                @if (Page.ShowPaging != null)
-                {
-                    <ul class="pager">
-                        @if (Blog.GetPosts().Count() > Blog.PostsPerPage * Blog.CurrentPage)
-                        {
-                            <li class="previous"><a href="@Blog.GetPagingUrl(1)" rel="prev">&larr; Older</a></li>
-                        }
+            @if (Page.ShowPaging != null)
+            {
+                <ul class="pager">
+                    @if (Blog.GetPosts().Count() > Blog.PostsPerPage*Blog.CurrentPage)
+                    {
+                        <li class="previous"><a href="@Blog.GetPagingUrl(1)" rel="prev">&larr; Older</a></li>
+                    }
 
-                        @if (Blog.CurrentPage > 1)
-                        {
-                            <li class="next"><a href="@Blog.GetPagingUrl(-1)" rel="next">Newer &rarr;</a></li>
-                        }
-                    </ul>
-                }
-            </div>
+                    @if (Blog.CurrentPage > 1)
+                    {
+                        <li class="next"><a href="@Blog.GetPagingUrl(-1)" rel="next">Newer &rarr;</a></li>
+                    }
+                </ul>
+            }
         </div>
     </div>
+</div>
 
-    <footer class="text-center" role="contentinfo" itemscope itemtype="http://schema.org/Person" itemprop="author">
-        @if (!User.Identity.IsAuthenticated)
-        {
-            <span class="pull-right" style="margin-right: 30px">
+<footer class="text-center" role="contentinfo" itemscope itemtype="http://schema.org/Person" itemprop="author">
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <span class="pull-right" style="margin-right: 30px">
                 <a href="@FormsAuthentication.LoginUrl?ReturnUrl=@Request.RawUrl">Sign in <i class="glyphicon glyphicon-log-in"></i></a>
             </span>
-        }
-        <span>
+    }
+    <span>
             Copyright &copy; @DateTime.Now.Year Jackson Hayes | <a href="https://github.com/madskristensen/MiniBlog">Blog powered by MiniBlog</a>
 
         </span>
-    </footer>
+</footer>
 
 
-    @if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)) || Blog.IsNewPost)
-    {
-        <script src="@Blog.FingerPrint("/scripts/comments.js")" async defer></script>
-    }
+@if ((Blog.CurrentPost != null && Blog.CurrentPost.AreCommentsOpen(Context)) || Blog.IsNewPost)
+{
+    <script src="@Blog.FingerPrint("/scripts/comments.js")" async defer></script>
+}
 
-    @if (User.Identity.IsAuthenticated)
-    {
-        @RenderPage("~/views/AdminMenu.cshtml")
-    }
+
+@if (User.Identity.IsAuthenticated)
+{
+    @RenderPage("~/views/AdminMenu.cshtml")
+}
+
+    <script type="text/javascript">
+
+    var photoButtom = document.getElementById('photoButton');
+    photoButton.onclick = function () {
+        window.open('http://www.jacksonjhayes.500px.com', '_blank');
+    };
+    
+    </script>
 
 </body>
 </html>
